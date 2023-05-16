@@ -26,12 +26,6 @@
       "output":"build"
     
     },
-    "productName": "Lab timer",
-    "target": "NSIS",
-    "nsis": {
-      "oneClick": false,
-      "perMachine": true,
-      "allowToChangeInstallationDirectory": true
-    }
+    "productName": "timer"
   }
 }

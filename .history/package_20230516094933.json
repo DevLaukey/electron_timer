@@ -19,19 +19,5 @@
   "devDependencies": {
     "electron": "^24.3.0",
     "electron-builder": "^23.6.0"
-  },
-  "build": {
-    "appId": "com.electron.timer",
-    "directory":{
-      "output":"build"
-    
-    },
-    "productName": "Lab timer",
-    "target": "NSIS",
-    "nsis": {
-      "oneClick": false,
-      "perMachine": true,
-      "allowToChangeInstallationDirectory": true
-    }
   }
 }
