@@ -1,14 +1,6 @@
 // Modules to control application life and create native browser window
 const { app, BrowserWindow } = require('electron')
 const path = require('path')
-const { spawn } = require('child_process');
-const { exec } = require('child_process');
-
-// Disable Task Manager
-exec('REG add HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\System /v DisableTaskMgr /t REG_DWORD /d 1 /f');
-
-// Disable CMD
-exec('REG add HKCU\\Software\\Policies\\Microsoft\\Windows\\System /v DisableCMD /t REG_DWORD /d 1 /f');
 
 function createWindow () {
   // Create the browser window.
