@@ -5,8 +5,7 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "dist": "electron-builder",
-    "pack": "electron-builder --dir"
+    "dist": "electron-builder"
   },
   "repository": "https://github.com/electron/electron-quick-start",
   "keywords": [
@@ -24,8 +23,9 @@
   },
   "build": {
     "appId": "com.electron.timer",
-    "directory": {
-      "output": "build"
+    "directory":{
+      "output":"build"
+    
     },
     "productName": "Lab timer",
     "target": "NSIS",
