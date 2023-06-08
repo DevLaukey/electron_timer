@@ -80,25 +80,11 @@ function createWindow () {
   //});
 }
 
-
-function openIndex() {
-  mainWindow.loadFile("index.html");
-
-  // Open the DevTools.
-  mainWindow.webContents.openDevTools();
-}
-
-function openHome() {
-  mainWindow.loadFile("home.html");
-}
-
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
   createWindow()
-    openIndex();
-
   // Add your app to the user's startup programs
   app.setLoginItemSettings({
     openAtLogin: true,

@@ -11,26 +11,15 @@
     <title>User Management</title>
   </head>
   <body>
-      <div>
-    <label>Username</label>
-    <input type="text" name="username" id="username"/>
-
-    <label>Password</label>
-    <input type="password" name="password" id="password"/>
-  </div>
-
-  <div>
-    <button id="login-button">Login</button>
-  </div>
-  <div>
-    <label id="error-message"></label>
-  </div>
-    <!-- <div class="contact_form">
+    <div class="contact_form">
       <div class="formulario">
         <h1>Kindly Enter the code Provided below to be Authenticated</h1>
-        <h3>HERE IS THE CODE : ACSDCASB</h3>
+        <h3>HERE 
+          IS THE CODE : ACSDCASB</h3>
 
-        <form>
+        <form >
+
+
           <p>
             <label for="email" class="colocar_email"
               >Email
@@ -45,6 +34,7 @@
             />
           </p>
 
+      
           <button type="submit" name="enviar_formulario" id="enviar">
             <p>Submit</p>
           </button>
@@ -54,28 +44,14 @@
           </p>
         </form>
       </div>
-    </div> -->
+    </div>
     <!-- You can also require other files to run in this process -->
     <script src="./renderer.js"></script>
-    <!-- <script>
+    <script>
       // generate a random number
       const random = Math.random();
       // show the random number in the html page
       document.getElementById("random").innerHTML = random;
-    </script> -->
+    </script>
   </body>
-  <script>
-  document.querySelector("#login-button").addEventListener("click", () => {
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
-
-    const data = {
-      username: username,
-      password: password,
-    };
-
-    window.electron.login(data);
-  });
-
-</script>
 </html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Home</h1>
+
+<div>
+  Congratulations <span id="username">test</span>, You've made it to a secure page using Okta.
+</div>
+
+<div>
+  <button id="logout-button">Logout</button>
+</div>
+
+</body>
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    window.electron.getUser().then((user) => {
+      document.getElementById("username").innerHTML = `${user.profile.firstName} ${user.profile.lastName}`
+    });
+  });
+
+  document.getElementById('logout-button').addEventListener('click', () => {
+    window.electron.logout();
+  });
+</script>
+</html>

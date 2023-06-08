@@ -97,8 +97,6 @@ function openHome() {
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
   createWindow()
-    openIndex();
-
   // Add your app to the user's startup programs
   app.setLoginItemSettings({
     openAtLogin: true,
