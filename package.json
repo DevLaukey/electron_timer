@@ -19,7 +19,7 @@
   "author": "Laukey",
   "license": "CC0-1.0",
   "devDependencies": {
-    "@okta/okta-auth-js": "^5.8.0",
+    "@okta/okta-auth-js": "^7.4.0",
 
     "electron": "^25.0.0",
     "electron-builder": "^23.6.0"
