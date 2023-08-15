@@ -21,7 +21,7 @@
   "devDependencies": {
     "@okta/okta-auth-js": "^5.8.0",
 
-    "electron": "^25.0.0",
+    "electron": "^26.0.0",
     "electron-builder": "^23.6.0"
   },
   "build": {
